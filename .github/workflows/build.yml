@@ -31,10 +31,10 @@ jobs:
             ${{ runner.os }}-gradle-
 
       - name: Build with Gradle
-        run: ./gradlew build
+        run: ./gradlew build --no-daemon
 
       - name: Run tests with Gradle
-        run: ./gradlew test
+        run: ./gradlew test --no-daemon
 
       - name: Upload build artifact
         uses: actions/upload-artifact@v3
@@ -42,4 +42,3 @@ jobs:
           name: Java Build Artifacts
           path: |
             build/libs/*.jar
-            !build/libs/original-*.jar
